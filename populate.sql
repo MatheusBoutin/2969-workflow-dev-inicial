@@ -7,10 +7,17 @@ CREATE TABLE autores(
 );
 
 INSERT INTO autores (nome, nacionalidade) 
+<<<<<<< HEAD
 VALUES  ("JRR Tolkien", "sul-africano"),
         ("Ursula LeGuin", "estadunidense"),
         ("Machado de Assis", "brasileira"),
         ("Júlio Cortázar", "argentino");
+=======
+VALUES  ('JRR Tolkien', 'sul-africano'),
+        ('Ursula LeGuin', 'estadunidense'),
+        ('Machado de Assis', 'brasileira'),
+        ('Júlio Cortázar', 'argentino');
+>>>>>>> c9f4edd (Primeiro commit limpo)
 
 CREATE TABLE editoras(
   id      INTEGER NOT NULL PRIMARY KEY,
@@ -22,10 +29,17 @@ CREATE TABLE editoras(
 );
 
 INSERT INTO editoras (nome, cidade, email) 
+<<<<<<< HEAD
 VALUES  ("Europa-América", "Lisboa", "e@e.com"),
         ("Morro Branco", "São Paulo", "m@m.com"),
         ("Aleph", "São Paulo", "al@al.com"),
         ("Ateliê", "São Paulo", "a@a.com");
+=======
+VALUES  ('Europa-América', 'Lisboa', 'e@e.com'),
+        ('Morro Branco', 'São Paulo', 'm@m.com'),
+        ('Aleph', 'São Paulo', 'al@al.com'),
+        ('Ateliê', 'São Paulo', 'a@a.com');
+>>>>>>> c9f4edd (Primeiro commit limpo)
 
 CREATE TABLE livros(
   id          INTEGER NOT NULL PRIMARY KEY,
@@ -41,6 +55,7 @@ CREATE TABLE livros(
 
 INSERT INTO livros (titulo, paginas, autor_id, editora_id)
 VALUES 
+<<<<<<< HEAD
    ("O Hobbit", 230, 1, 1),
    ("O Silmarillion", 400, 1, 1),
    ("O Silmarillion", 400, 1, 1),
@@ -49,3 +64,13 @@ VALUES
    ("Memórias Póstumas de Brás Cubas", 150, 3, 4);
   
 .exit
+=======
+   ('O Hobbit', 230, 1, 1),
+   ('O Silmarillion', 400, 1, 1),
+   ('O Silmarillion', 400, 1, 1),
+   ('O Feiticeiro de Terramar', 450, 2, 2),
+   ('Os Despossuídos', 300, 2, 3),
+   ('Memórias Póstumas de Brás Cubas', 150, 3, 4);
+  
+.exit
+>>>>>>> c9f4edd (Primeiro commit limpo)

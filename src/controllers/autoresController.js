@@ -1,4 +1,4 @@
-import Autor from '../models/autor.js';
+import { Autor } from '../models/autor.js';
 
 class AutoresController {
   static listarAutores = async (_, res) => {
@@ -66,6 +66,26 @@ class AutoresController {
       return res.status(200).json({ message: 'autor excluído' });
     } catch (err) {
       return res.status(500).json(err.message);
+    }
+  };
+
+  static listarlivrosPorAutor = async (req, res) => {
+    const { id } = req.params;
+    const autorId = Number(id);
+
+    if (Number.isNaN(autorId)) {
+      return res.status(400).json({ error: 'ID inválido' });
+    }
+
+    try {
+      const listaLivros = await Autor.pegaLivrosporAutor(autorId);
+      const autor = await Autor.pegarPeloId(autorId);
+      if (!autor) {
+        return res.status(404).json({ message: `id ${id} não encontrado` });
+      }
+      return res.status(200).json({ autor, livros: listaLivros });
+    } catch (err) {
+      return res.status(500).json({ error: err.message });
     }
   };
 }

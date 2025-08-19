@@ -6,6 +6,10 @@ const router = express.Router();
 router
   .get('/autores', AutoresController.listarAutores)
   .get('/autores/:id', AutoresController.listarAutorPorId)
+<<<<<<< HEAD
+=======
+  .get('/autores/:id/livros', AutoresController.listarlivrosPorAutor)
+>>>>>>> c9f4edd (Primeiro commit limpo)
   .post('/autores', AutoresController.cadastrarAutor)
   .put('/autores/:id', AutoresController.atualizarAutor)
   .delete('/autores/:id', AutoresController.excluirAutor);

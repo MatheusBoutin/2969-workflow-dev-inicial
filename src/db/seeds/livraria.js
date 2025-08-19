@@ -4,10 +4,19 @@
  * @returns { Promise<void> }
  */
 export async function seed(knex) {
+<<<<<<< HEAD
   // Deletes ALL existing entries
   await knex('livros').del();
   await knex('editoras').del();
   await knex('autores').del();
+=======
+  // Limpa tabelas e reseta IDs
+  await knex.raw('TRUNCATE TABLE livros RESTART IDENTITY CASCADE');
+  await knex.raw('TRUNCATE TABLE editoras RESTART IDENTITY CASCADE');
+  await knex.raw('TRUNCATE TABLE autores RESTART IDENTITY CASCADE');
+
+  // Insere autores
+>>>>>>> c9f4edd (Primeiro commit limpo)
   await knex('autores').insert([
     {
       nome: 'K. Johnson',
@@ -22,6 +31,11 @@ export async function seed(knex) {
       nacionalidade: 'Orlando',
     },
   ]);
+<<<<<<< HEAD
+=======
+
+  // Insere editoras
+>>>>>>> c9f4edd (Primeiro commit limpo)
   await knex('editoras').insert([
     {
       nome: 'Editora Node.js',
@@ -39,6 +53,11 @@ export async function seed(knex) {
       email: 'ed@ed.com',
     },
   ]);
+<<<<<<< HEAD
+=======
+
+  // Insere livros
+>>>>>>> c9f4edd (Primeiro commit limpo)
   await knex('livros').insert([
     {
       titulo: 'O Grande Livro de Node.js',
@@ -61,4 +80,8 @@ export async function seed(knex) {
   ]);
 }
 
+<<<<<<< HEAD
 // npx knex --knexfile=./src/db/knexfile.js seed:make livraria
+=======
+// npx knex --knexfile=./src/db/knexfile.js seed:run
+>>>>>>> c9f4edd (Primeiro commit limpo)
