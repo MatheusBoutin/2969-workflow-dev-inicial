@@ -17,21 +17,11 @@ class Autor {
     this.updated_at = updated_at || new Date().toISOString();
   }
 
-<<<<<<< HEAD
-=======
   // Pega todos os autores
->>>>>>> c9f4edd (Primeiro commit limpo)
   static async pegarAutores() {
     return db.select('*').from('autores');
   }
 
-<<<<<<< HEAD
-  static async pegarPeloId(id) {
-    const resultado = await db.select('*').from('autores').where({ id });
-    return resultado[0];
-  }
-
-=======
   // Pega autor pelo ID
   static async pegarPeloId(id) {
     const resultado = await db.select('*').from('autores').where({ id });
@@ -39,7 +29,6 @@ class Autor {
   }
 
   // Cria um novo autor e retorna o objeto criado
->>>>>>> c9f4edd (Primeiro commit limpo)
   async criar() {
     const novoAutor = {
       nome: this.nome,
@@ -47,37 +36,6 @@ class Autor {
       created_at: this.created_at,
       updated_at: this.updated_at,
     };
-<<<<<<< HEAD
-    return db('autores').insert(novoAutor);
-  }
-
-  async atualizar(id) {
-    // o update retorna a quantidade de rows atualizados e não o objeto do registro atualizado
-    await db('autores')
-      .where({ id })
-      .update({ ...this, updated_at: new Date().toISOString() });
-
-    return db.select('*').from('autores').where({ id });
-  }
-
-  static async excluir(id) {
-    // o del retorna a quantidade de rows deletados
-    return db('autores')
-      .where({ id })
-      .del();
-  }
-
-  async salvar() {
-    // verificar se o id existe no banco
-    // se não existir é create
-    // se existir é update
-    if (this.id) {
-      const resultado = await this.atualizar(this.id);
-      return resultado;
-    }
-    const resultado = await this.criar();
-    return resultado;
-=======
 
     const [id] = await db('autores').insert(novoAutor).returning('id');
     return Autor.pegarPeloId(typeof id === 'object' ? id.id : id);
@@ -111,7 +69,6 @@ class Autor {
 
   static async pegaLivrosporAutor(autorId) {
     return db('livros').where({ autor_id: autorId });
->>>>>>> c9f4edd (Primeiro commit limpo)
   }
 }
 
